@@ -26,12 +26,13 @@
   right: 15px;
 }
 
-.modal__close a .icon-close {
+.modal__close div .icon-close {
   color: #fff;
   width: 80px;
   height: 80px;
   font-size: 40px;
   fill: aqua !important;
+  cursor: pointer;
 }
 
 .modal__close svg {

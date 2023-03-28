@@ -1,20 +1,21 @@
 'use strict'
 import '../assets/modal.css';
+import PropTypes from 'prop-types';
+import { useState } from 'react';
 import close from '../assets/img/close.svg';
 
+const Modal = ({ open, onClose, title, text, color, bgColor, icon_color }) => {
+    if (!open) return null;
 
-import PropTypes from 'prop-types';
-
-const Modal = ({ title, text, color, bgColor, icon_color }) => {
     return (
         <div className="container_modal">
             <div style={{ color, backgroundColor: bgColor }} className='modal'>
                 <div className="modal__close">
-                    <a href="#">
+                    <div onClick={onClose} >
                         <span className="icon-close" style={{ color: icon_color }}>
-                            <i class="fa-solid fa-xmark"></i>
+                            <i className="fa-solid fa-xmark"></i>
                         </span>
-                    </a>
+                    </div>
                 </div>
                 <div className="modal__title">
                     <h2>{title}</h2>
@@ -28,8 +29,10 @@ const Modal = ({ title, text, color, bgColor, icon_color }) => {
 }
 // propType
 Modal.propTypes = {
-    title: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
+    open: PropTypes.bool.isRequired,
+    onClose: PropTypes.func.isRequired,
+    title: PropTypes.string,
+    text: PropTypes.string,
     color: PropTypes.string,
     bgColor: PropTypes.string
 }
